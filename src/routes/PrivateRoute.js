@@ -7,46 +7,18 @@ export const PrivateRoute = ({
     isAuthenticated,
     component: Component,
     ...rest
-}) => {
-    // console.log('isAuthenticated', isAuthenticated)
-    // console.log('component', Component)
-    // console.log('rest',rest)
-    // let innerComponent 
-    // if(isAuthenticated) innerComponent = (props) => ( <Component {...props} />)
-    // else innerComponent = (<Redirect to="/" />)
-    // return (
-    //     <Route rest component={innerComponent} />
-    // )
-    if(isAuthenticated) {
-        return (
-            <div>
-                <Header/>
-                <Component />
-            </div>
-        )
-    }
-    else return (<Redirect to="/" />)
-}
-
-// Proposed not working
-// export const PrivateRoute = ({
-//     isAuthenticated,
-//     component: Component,
-//     ...rest
-// }) => (
-//     <Route rest component={(props) => {
-//         isAuthenticated ? (
-//             <Component {...props} />
-//         ) : (
-//             <Redirect to="/" />
-//         )
-//     }}/>
-// )
-
-// Basic working without functionality
-// export const PrivateRoute = (props) => (
-//     <Route {...props} />
-// )
+  }) => (
+      <Route {...rest} component={(props) => (
+        isAuthenticated ? (
+          <div>
+            <Header />
+            <Component {...props} />
+          </div>
+        ) : (
+            <Redirect to="/" />
+          )
+      )} />
+    );
 
 const mapStateToProps = (state) => ({
     isAuthenticated: !!state.auth.uid
