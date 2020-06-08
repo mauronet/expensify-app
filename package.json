@@ -24,6 +24,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^3.5.3",
     "firebase": "^7.14.6",
+    "history": "^4.10.1",
     "moment": "^2.26.0",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",

@@ -15,13 +15,6 @@ const firebaseConfig = {
 
   const database = firebase.database()
 
-  export { firebase, database as default }
+  const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 
-  // database.ref().set({
-  //     name: 'Mao',
-  //     age: 42
-  // }).then(() => {
-  //   console.log('Data saved!')
-  // }).catch((error) => {
-  //   console.log('This failed: ', error.message)
-  // })
+  export { firebase, googleAuthProvider, database as default }
